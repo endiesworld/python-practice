@@ -1,6 +1,7 @@
 
-# from input_output.input_output import keyboard_input
-# List operations
+
+# List operations for more methods, visit https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
+
 my_details = ['Emmanuel', 'Okoro']
 
 my_details.append(35)
