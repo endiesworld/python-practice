@@ -1,5 +1,7 @@
 
+from distionary_operations import my_details
 
+print(f'The imported details are {my_details}')
 # List operations for more methods, visit https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
 
 my_details = ['Emmanuel', 'Okoro']
