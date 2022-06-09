@@ -1,7 +1,8 @@
 import re
 
 
-print('Hello Emmanuel, welcome to pyhton')
+def welcome_message():
+    print('Hello Emmanuel, welcome to pyhton')
 
 
 def string_char_counter(arg, char):
@@ -68,5 +69,6 @@ def keyboard_input(user_message='Enter only Decimal or whole numbers'):
 # string_char_counter(word, char)
 
 
-number = keyboard_input('Enter a number')
-print('Inputed value: ', number)
+def close_message():
+    number = keyboard_input('Enter a number')
+    print('Inputed value: ', number)
