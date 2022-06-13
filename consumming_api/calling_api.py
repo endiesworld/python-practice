@@ -2,13 +2,12 @@ import requests
 import json
 
 
-endpoint = 'https://emmapythonimageanalyzer.cognitiveservices.azure.com/vision/v3.2/'
-region = 'southafricanorth'
+endpoint = 'https://emmapythonimageanalyzer.cognitiveservices.azure.com/vision/v3.2/analyze'
 key_path = "../api_keys.txt"
 SUBSCRIPTION_KEY = open(key_path, "rb").read()
-print('API keys: ', SUBSCRIPTION_KEY)
-# Add the name of the function you want to call to the address
-address = "{}analyze".format(endpoint)
+# print('API keys: ', SUBSCRIPTION_KEY)
+# # Add the name of the function you want to call to the address
+# address = "{}analyze".format(endpoint)
 
 # According to the documentation for the analyze image function
 # There are three optional parameters: language, details & visualFeatures
@@ -27,7 +26,7 @@ headers = {'Content-Type': 'application/octet-stream',
 
 # According to the documentation for the analyze image function
 # we use HTTP POST to call this function
-response = requests.post(address, headers=headers,
+response = requests.post(endpoint, headers=headers,
                          params=parameters, data=image_data)
 
 # Raise an exception if the call returns an error code
