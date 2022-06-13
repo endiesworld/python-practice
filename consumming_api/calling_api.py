@@ -1,10 +1,14 @@
 import requests
 import json
+from dotenv import load_dotenv
+import os
+load_dotenv()
+SUBSCRIPTION_KEY = os.getenv('COMPUTER_VISISON')
 
 
 endpoint = 'https://emmapythonimageanalyzer.cognitiveservices.azure.com/vision/v3.2/analyze'
-key_path = "../api_keys.txt"
-SUBSCRIPTION_KEY = open(key_path, "rb").read()
+
+
 # print('API keys: ', SUBSCRIPTION_KEY)
 # # Add the name of the function you want to call to the address
 # address = "{}analyze".format(endpoint)
@@ -34,4 +38,5 @@ response.raise_for_status()
 
 # Display the JSON results returned
 results = response.json()
-print(json.dumps(results))
+# print(json.dumps(results))
+print(results)
