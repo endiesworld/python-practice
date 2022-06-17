@@ -32,12 +32,14 @@
     She challenges Bob to pick out the card containing a given number by turning over as few cards as possible. 
     Write a function to help Bob locate the card.
 
-   Card = [13, 11, 10, 7, 4, 3, 1, 0] 
-   number: 7
+    Card = [13, 11, 10, 7, 4, 3, 1, 0] 
+    number: 7
 """
 
 card = [13, 11, 10, 7, 4, 3, 1, 0, -3, -7, - 9]
 number = 0
+
+# Recursive solution for binary search
 
 
 def binary_seach(list, element, start=False, stop=False):
