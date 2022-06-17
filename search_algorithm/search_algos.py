@@ -89,12 +89,38 @@ def loop_binary_search(list, element):
             break
         if mid_point == start:
             break
-        if list[mid_point] > element:
+        elif list[mid_point] > element:
             start = mid_point
-        if list[mid_point] < element:
+        else:
             stop = mid_point
     return index
 
 
+def search(nums, target: int) -> int:
+
+    arr_size = len(nums)
+
+    if nums[0] == target:
+        return 0
+
+    index = -1
+    start = 0
+    stop = arr_size
+
+    while start < stop:
+        mid_point = (start + stop) // 2
+        if nums[mid_point] == target:
+            index = mid_point
+            break
+        elif (stop == mid_point) | (start == mid_point):
+            break
+        elif nums[mid_point] > target:
+            stop = mid_point
+        else:
+            start = mid_point
+    return index
+
+
 # print(recursive_binary_seach(card, number))
-print(loop_binary_search(card, number))
+# print(loop_binary_search(card, number))
+print(search([-1, 0, 3, 5, 9, 12], 2))
