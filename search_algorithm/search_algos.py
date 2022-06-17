@@ -37,37 +37,64 @@
 """
 
 card = [13, 11, 10, 7, 4, 3, 1, 0, -3, -7, - 9]
-number = 0
+number = 3
 
-# Recursive solution for binary search
+# Recursive solution for binary search for list sorted in descending order
 
 
-def binary_seach(list, element, start=False, stop=False):
+def recursive_binary_seach(list, element, start=False, stop=False):
     arr_size = len(list)
     start = start
     stop = stop
     if arr_size == 1:
-        return 0
+        return 0 if list[0] == element else None
 
     if not start:
         start = 0
-        print('No start')
+
     if not stop:
         stop = arr_size
-        print('No stop')
 
+    if (list[start] < element) | (list[stop - 1] > element):
+        return None
     mid_index = (start + stop) // 2
-    print('mid index is: ', mid_index)
-
+    print('mid point is: {}, start point is: {}, stop point is: {}'.format(
+        mid_index, start, stop))
     if list[mid_index] == element:
         return mid_index
 
     elif list[mid_index] < element:
         stop = mid_index
-        return binary_seach(list, element, start=start, stop=stop)
+        return recursive_binary_seach(list, element, start=start, stop=stop)
     else:
         start = mid_index
-        return binary_seach(list, element, start=start, stop=stop)
+        return recursive_binary_seach(list, element, start=start, stop=stop)
 
 
-print(binary_seach(card, number))
+def loop_binary_search(list, element):
+    arr_size = len(list)
+    if arr_size == 1:
+        return 0 if list[0] == element else None
+
+    index = None
+    start = 0
+    stop = arr_size
+
+    while start < stop:
+        mid_point = (start + stop) // 2
+        print('mid point is: {}, start point is: {}, stop point is: {}'.format(
+            mid_point, start, stop))
+        if list[mid_point] == element:
+            index = mid_point
+            break
+        if mid_point == start:
+            break
+        if list[mid_point] > element:
+            start = mid_point
+        if list[mid_point] < element:
+            stop = mid_point
+    return index
+
+
+# print(recursive_binary_seach(card, number))
+print(loop_binary_search(card, number))
