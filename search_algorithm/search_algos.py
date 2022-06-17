@@ -36,31 +36,35 @@
    number: 7
 """
 
-card = [13, 11, 10, 7, 4, 3, 1, 0]
-number = 7
+card = [13, 11, 10, 7, 4, 3, 1, 0, -3, -7, - 9]
+number = 0
 
 
 def binary_seach(list, element, start=False, stop=False):
     arr_size = len(list)
+    start = start
+    stop = stop
     if arr_size == 1:
-        return 1
+        return 0
 
     if not start:
         start = 0
+        print('No start')
     if not stop:
-        stop = len(list)
+        stop = arr_size
+        print('No stop')
 
     mid_index = (start + stop) // 2
+    print('mid index is: ', mid_index)
 
-    # if mid_index == 1:
-    #     return mid_index
     if list[mid_index] == element:
         return mid_index
+
     elif list[mid_index] < element:
-        start = mid_index + 1
+        stop = mid_index
         return binary_seach(list, element, start=start, stop=stop)
     else:
-        stop = mid_index
+        start = mid_index
         return binary_seach(list, element, start=start, stop=stop)
 
 
