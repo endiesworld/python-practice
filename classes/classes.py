@@ -1,4 +1,4 @@
-class Person():
+class Person:
     def __init__(self, firstname, surname) -> None:  # Constructor
         self.firstname = firstname  # property/ field setter
         self.surname = surname
