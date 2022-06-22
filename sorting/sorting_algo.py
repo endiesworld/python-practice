@@ -12,5 +12,29 @@
 
 # Merge Sort
 """
-
+    Works by subdividing the list into two sub-lists, sorting them using merge sort and 
+    then merging them back up. Recursive call is made to subdivide eachv list into sublist
+    until size is 1.
 """
+
+
+def merge_sort(list):
+    list_len = len(list)
+    print(f'Caller list: {list}')
+    if list_len == 1:
+        return list[0]
+
+    mid = list_len // 2
+    left_list = list[:mid]
+    right_list = list[mid:]
+
+    left_side = merge_sort(left_list)
+    print(f'left list is: {left_side}')
+    right_side = merge_sort(right_list)
+
+    return [left_side, right_side]
+
+
+items = [1, -3, 2, 0, 3, -2, -1]
+
+print(merge_sort(items))
