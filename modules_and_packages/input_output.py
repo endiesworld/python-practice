@@ -1,5 +1,8 @@
 import re
 
+print(
+    f'***This code is running directly in the input_output.py file with module name module is {__name__}***')
+
 
 def welcome_message():
     print('Hello Emmanuel, welcome to pyhton')

@@ -8,6 +8,13 @@ from input_output import keyboard_input_int
     # https://www.geeksforgeeks.org/python-import-module-from-different-directory/
 """
 
+"""
+    The __name__ is a special built-in variable which evaluates to the name of the current module. 
+    However, if a module is being run directly (from command line), then __name__ instead is set to the string “__main__”.
+"""
+
 user_input = keyboard_input_int(user_message='Please enter your age')
 
 print(f'you are {user_input} years old')
+print(
+    f'***This code is running directly in the modules_packages.py file with module name module is {__name__}***')
