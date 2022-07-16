@@ -6,14 +6,13 @@ def roll_dice(dice):
 
 def _roll_dice(dice, rolled_dice):
     if dice == 0:
-        return ''
-    store = []
-    dice_number = dice
+        return print(rolled_dice)
+    # store = []
+    # dice_number = dice
     for number in range(1, 7):
-        data = _roll_dice(dice - 1)
-        dice_val = '{},{}'.format(data, number)
-        store.append((dice_val))
-    return store
+        rolled_dice.append(number)
+        _roll_dice(dice - 1, rolled_dice)
+        rolled_dice.pop()
 
 
 print(roll_dice(2))
