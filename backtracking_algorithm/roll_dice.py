@@ -7,8 +7,6 @@ def roll_dice(dice):
 def _roll_dice(dice, rolled_dice):
     if dice == 0:
         return print(rolled_dice)
-    # store = []
-    # dice_number = dice
     for number in range(1, 7):
         rolled_dice.append(number)
         _roll_dice(dice - 1, rolled_dice)
