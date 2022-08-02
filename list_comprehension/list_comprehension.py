@@ -32,3 +32,12 @@ x = [1, 2, 3, 4, 5, 6, 7]
 y = ['a', 'b', 'c']
 z = [x for x in zip(x, y)]
 print('z : ', z)  # [(1, 'a'), (2, 'b'), (3, 'c')]
+
+result = []
+RESPONSE_REQUIRED = [['when', 'how', 'what', 'who', 'can', 'know'], [
+    'when', 'how', 'what', 'who', 'can', 'know'], ['when', 'how', 'what', 'who', 'can', 'know']]
+for data in RESPONSE_REQUIRED:
+    r = ' '.join(d for d in data)
+    result.append(r)
+
+print(result)
