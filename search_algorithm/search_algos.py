@@ -42,85 +42,106 @@ number = 3
 # Recursive solution for binary search for list sorted in descending order
 
 
-def recursive_binary_seach(list, element, start=False, stop=False):
-    arr_size = len(list)
-    start = start
-    stop = stop
-    if arr_size == 1:
-        return 0 if list[0] == element else None
+# def recursive_binary_seach(list, element, start=False, stop=False):
+#     arr_size = len(list)
+#     start = start
+#     stop = stop
+#     if arr_size == 1:
+#         return 0 if list[0] == element else None
 
-    if not start:
-        start = 0
+#     if not start:
+#         start = 0
 
-    if not stop:
-        stop = arr_size
+#     if not stop:
+#         stop = arr_size
 
-    if (list[start] < element) | (list[stop - 1] > element):
-        return None
-    mid_index = (start + stop) // 2
-    print('mid point is: {}, start point is: {}, stop point is: {}'.format(
-        mid_index, start, stop))
-    if list[mid_index] == element:
-        return mid_index
+#     if (list[start] < element) | (list[stop - 1] > element):
+#         return None
+#     mid_index = (start + stop) // 2
+#     print('mid point is: {}, start point is: {}, stop point is: {}'.format(
+#         mid_index, start, stop))
+#     if list[mid_index] == element:
+#         return mid_index
 
-    elif list[mid_index] < element:
-        stop = mid_index
-        return recursive_binary_seach(list, element, start=start, stop=stop)
-    else:
-        start = mid_index
-        return recursive_binary_seach(list, element, start=start, stop=stop)
-
-
-def loop_binary_search(list, element):
-    arr_size = len(list)
-    if arr_size == 1:
-        return 0 if list[0] == element else None
-
-    index = None
-    start = 0
-    stop = arr_size
-
-    while start < stop:
-        mid_point = (start + stop) // 2
-        print('mid point is: {}, start point is: {}, stop point is: {}'.format(
-            mid_point, start, stop))
-        if list[mid_point] == element:
-            index = mid_point
-            break
-        if mid_point == start:
-            break
-        elif list[mid_point] > element:
-            start = mid_point
-        else:
-            stop = mid_point
-    return index
+#     elif list[mid_index] < element:
+#         stop = mid_index
+#         return recursive_binary_seach(list, element, start=start, stop=stop)
+#     else:
+#         start = mid_index
+#         return recursive_binary_seach(list, element, start=start, stop=stop)
 
 
-def search(nums, target: int) -> int:
+# def loop_binary_search(list, element):
+#     arr_size = len(list)
+#     if arr_size == 1:
+#         return 0 if list[0] == element else None
 
-    arr_size = len(nums)
+#     index = None
+#     start = 0
+#     stop = arr_size
 
-    if nums[0] == target:
-        return 0
+#     while start < stop:
+#         mid_point = (start + stop) // 2
+#         print('mid point is: {}, start point is: {}, stop point is: {}'.format(
+#             mid_point, start, stop))
+#         if list[mid_point] == element:
+#             index = mid_point
+#             break
+#         if mid_point == start:
+#             break
+#         elif list[mid_point] > element:
+#             start = mid_point
+#         else:
+#             stop = mid_point
+#     return index
 
-    index = -1
-    start = 0
-    stop = arr_size
 
-    while start < stop:
-        mid_point = (start + stop) // 2
-        if nums[mid_point] == target:
-            index = mid_point
-            break
-        elif (stop == mid_point) | (start == mid_point):
-            break
-        elif nums[mid_point] > target:
-            stop = mid_point
-        else:
-            start = mid_point
-    return index
+# def search(nums, target: int) -> int:
+
+#     arr_size = len(nums)
+
+#     if nums[0] == target:
+#         return 0
+
+#     index = -1
+#     start = 0
+#     stop = arr_size
+
+#     while start < stop:
+#         mid_point = (start + stop) // 2
+#         if nums[mid_point] == target:
+#             index = mid_point
+#             break
+#         elif (stop == mid_point) | (start == mid_point):
+#             break
+#         elif nums[mid_point] > target:
+#             stop = mid_point
+#         else:
+#             start = mid_point
+#     return index
+
+
+def search(nums, target):
+    right = len(nums) - 1
+    return search_(nums, target, 0, right)
+
+
+def search_(nums, target, left, right):
+    if (left > right):
+        return -1
+
+    mid = (left + right) // 2
+
+    if nums[mid] == target:
+        return mid
+    elif nums[mid] > target:
+        right = mid - 1
+        return search_(nums, target, left, right)
+    elif nums[mid] < target:
+        left = mid + 1
+        return search_(nums, target, left, right)
 
 
 # print(recursive_binary_seach(card, number))
 # print(loop_binary_search(card, number))
-print(search([-1, 0, 3, 5, 9, 12], 2))
+print(search([-2, -1, 0, 2, 3, 5, 9, 12], -2))
