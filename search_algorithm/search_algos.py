@@ -36,8 +36,38 @@
     number: 7
 """
 
+
+from unittest import result
 card = [13, 11, 10, 7, 4, 3, 1, 0, -3, -7, - 9]
-number = 3
+number = 14
+
+
+def search_func(card, number):
+
+    card_len = len(card)
+    return search_func_(card, number, left=0, right=card_len-1)
+
+
+def search_func_(card, number, left, right):
+    if (left > right):
+        return None
+    mid = (left + right) // 2
+
+    result = card[mid]
+
+    if result == number:
+        return mid
+    elif result > number:
+        print(f'left changed to {mid}, right remains {right}')
+        return search_func_(card, number, mid + 1, right)
+
+    elif result < number:
+        print(f'right changed to {mid}')
+        return search_func_(card, number, left, mid - 1)
+
+
+print(search_func(card, number))
+
 
 # Recursive solution for binary search for list sorted in descending order
 
@@ -121,27 +151,29 @@ number = 3
 #     return index
 
 
-def search(nums, target):
-    right = len(nums) - 1
-    return search_(nums, target, 0, right)
+# def search(nums, target):
+#     right = len(nums) - 1
+#     return search_(nums, target, 0, right)
 
 
-def search_(nums, target, left, right):
-    if (left > right):
-        return -1
+# def search_(nums, target, left, right):
+#     if (left > right):
+#         return -1
 
-    mid = (left + right) // 2
+#     mid = (left + right) // 2
 
-    if nums[mid] == target:
-        return mid
-    elif nums[mid] > target:
-        right = mid - 1
-        return search_(nums, target, left, right)
-    elif nums[mid] < target:
-        left = mid + 1
-        return search_(nums, target, left, right)
+#     if nums[mid] == target:
+#         return mid
+#     elif nums[mid] > target:
+#         right = mid - 1
+#         return search_(nums, target, left, right)
+#     elif nums[mid] < target:
+#         left = mid + 1
+#         return search_(nums, target, left, right)
 
 
-# print(recursive_binary_seach(card, number))
-# print(loop_binary_search(card, number))
-print(search([-2, -1, 0, 2, 3, 5, 9, 12], -2))
+# # print(recursive_binary_seach(card, number))
+# # print(loop_binary_search(card, number))
+# print(search([-2, -1, 0, 2, 3, 5, 9, 12], -2))
+
+print('Hello there')
