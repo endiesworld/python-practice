@@ -20,4 +20,4 @@ def _permutation(string, string_len, pos,  store=''):
         # string = string[index:]
 
 
-print(permutation('ABC'))
+print(permutation('ABCD'))
