@@ -1,3 +1,4 @@
 api_keys.txt
 .env
 venv
+.python-version
