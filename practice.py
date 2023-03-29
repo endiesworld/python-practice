@@ -3,7 +3,9 @@
 # # from collections import namedtuple
 # from typing import List, Optional
 import json
+import uuid
 
+print(str(uuid.UUID('8cd89c38-d5ca-41ae-a838-0975cb9aa04b')))
 # # @dataclass(frozen=True)
 # # class Name:
 # #     first_name: str
@@ -87,26 +89,26 @@ import json
 # print(my_fnc(type))
 
 
-CREATE_PROVIDER = {
-  "corporation": {
-    "email": "corporation@gmail.com",
-    "name": "Corperation-name",
-    "description": "Corperation-description",
-    "legalName": "Corperation-legalName",
-    "duns": "Corperation-duns",
-    "telephone": "Corperation-telephone",
-    "url": "Corperation-url",
-    "taxId": "Corperation-taxId",
-    "vatId": "Corperation-vatId"
-  },
-  "administrator": {
-    "email": "Corperation-admin-email",
-    "givenName": "Corperation-admin-givenName",
-    "familyName": "Corperation-admin-familyName",
-    "displayName": "Corperation-admin-displayName",
-    "telephone": "Corperation-admin-telephone",
-    "jobTitle": "Cporperation-admin-jobTitle"
-  }
-}
+# CREATE_PROVIDER = {
+#   "corporation": {
+#     "email": "corporation@gmail.com",
+#     "name": "Corperation-name",
+#     "description": "Corperation-description",
+#     "legalName": "Corperation-legalName",
+#     "duns": "Corperation-duns",
+#     "telephone": "Corperation-telephone",
+#     "url": "Corperation-url",
+#     "taxId": "Corperation-taxId",
+#     "vatId": "Corperation-vatId"
+#   },
+#   "administrator": {
+#     "email": "Corperation-admin-email",
+#     "givenName": "Corperation-admin-givenName",
+#     "familyName": "Corperation-admin-familyName",
+#     "displayName": "Corperation-admin-displayName",
+#     "telephone": "Corperation-admin-telephone",
+#     "jobTitle": "Cporperation-admin-jobTitle"
+#   }
+# }
 
-print(json.dumps(CREATE_PROVIDER))
+# print(json.dumps(CREATE_PROVIDER))
