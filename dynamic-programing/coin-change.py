@@ -1,6 +1,7 @@
 from typing import List
 
 # Coin change with repeatations of coins
+# Numbers of ways to make a coin change, with infinite numbers of coins
 def coin_change(arr :List, w: int):
     arr_len = len(arr)
     w_arr = [i for i in range(w+1)]
@@ -23,7 +24,7 @@ def coin_change(arr :List, w: int):
                 ref_val = combination[row_num ][ref_col]
                 combination[row_num][col_num] = prev_value + ref_val
     print(combination)
-                    
+    print("Answer: ", combination[arr_len-1][w])
     
 coin = [2,3,5,10]
 w = 15
