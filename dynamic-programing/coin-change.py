@@ -28,5 +28,6 @@ def coin_change(arr :List, w: int):
     
 coin = [2,3,5,10]
 w = 15
-
+coin = [1,2]
+w = 4
 coin_change(coin, w)    

@@ -2,10 +2,10 @@
 # # from typing import NamedTuple
 # # from collections import namedtuple
 # from typing import List, Optional
-import json
-import uuid
+# import json
+# import uuid
 
-print(str(uuid.UUID('8cd89c38-d5ca-41ae-a838-0975cb9aa04b')))
+# print(str(uuid.UUID('8cd89c38-d5ca-41ae-a838-0975cb9aa04b')))
 # # @dataclass(frozen=True)
 # # class Name:
 # #     first_name: str
@@ -112,3 +112,40 @@ print(str(uuid.UUID('8cd89c38-d5ca-41ae-a838-0975cb9aa04b')))
 # }
 
 # print(json.dumps(CREATE_PROVIDER))
+
+how_many_snakes = 1
+snake_string = """
+Welcome to Python3!
+
+             ____
+            / . .\\
+            \  ---<
+             \  /
+   __________/ /
+-=:___________/
+
+"""
+
+print(snake_string * how_many_snakes)
+
+# expression = eval(input("Enter an expression:"))
+
+# print('The result from the expression entered is: ', expression)
+
+names =  input("Enter student names:")
+assignments =  input("Enter student numbers of assignments pending:")
+grades =  input("Enter student current grades:")
+
+names = names.split(',')
+assignments = assignments.split(',')
+grades = grades.split(',')
+## message string to be used for each student
+## HINT: use .format() with this string in your for loop
+message = "Hi {},\n\nThis is a reminder that you have {} assignments left to \
+submit before you can graduate. Your current grade is {} and can increase \
+to {} if you submit all assignments before the due date.\n\n"
+
+## write a for loop that iterates through each set of names, assignments, and grades to print each student's message
+
+for name, assignment, grade in zip(names, assignments, grades):
+    print(message.format(name, assignment, grade, str(int(grade) + int(assignment))))
