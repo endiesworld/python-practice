@@ -50,14 +50,6 @@ class Binomial(Distribution):
         self.p = prob
         self.n = size
       
-        
-        
-        
-        
-        
-        
-        
-        
     
     def calculate_mean(self):
     
@@ -75,6 +67,7 @@ class Binomial(Distribution):
         #       via the self variable and also return the new mean value
                 
         self.mean = self.p * self.n 
+        return self.mean
 
 
 
@@ -94,6 +87,7 @@ class Binomial(Distribution):
         #       the result in the self standard deviation attribute. Return the value
         #       of the standard deviation.
         self.stdev = math.pow((self.n * self.p * (1 - self.p)), 0.5)
+        return self.stdev
         
         
         
@@ -127,10 +121,12 @@ class Binomial(Distribution):
         #
         #       Hint: You can use the calculate_mean() and calculate_stdev() methods
         #           defined previously.
-        self.read_data_file("numbers.txt")
+#         self.read_data_file("numbers.txt")
         self.n = len(self.data)
         self.p = sum(self.data) / self.n
-        return (self.n , self.p)
+        print(self.data)
+        print(self.p, self.n )
+        return (self.p, self.n )
         
     def plot_bar(self):
         """Function to output a histogram of the instance variable data using 
@@ -191,7 +187,9 @@ class Binomial(Distribution):
         
 #         from math import comb
         # Calculate the binomial coefficient
-        binomial_coefficient = math.comb(self.n, k)
+        binomial_coefficient = 1
+        for i in range(1, k + 1):
+            binomial_coefficient *= (self.n - i + 1) / i
 
         # Calculate the probability using the binomial PMF formula
         probability = binomial_coefficient * (self.p ** k) * ((1 - self.p) ** (self.n - k))
@@ -268,7 +266,7 @@ class Binomial(Distribution):
         #   When adding two binomial distributions, the p value remains the same
         #   The new n value is the sum of the n values of the two distributions.
                 
-        binomial = Binomial((self.n + other.n), self.p)
+        binomial = Binomial(self.p, (self.n + other.n))
         
         return binomial
         

@@ -113,39 +113,46 @@
 
 # print(json.dumps(CREATE_PROVIDER))
 
-how_many_snakes = 1
-snake_string = """
-Welcome to Python3!
+# how_many_snakes = 1
+# snake_string = """
+# Welcome to Python3!
 
-             ____
-            / . .\\
-            \  ---<
-             \  /
-   __________/ /
--=:___________/
+#              ____
+#             / . .\\
+#             \  ---<
+#              \  /
+#    __________/ /
+# -=:___________/
 
-"""
+# """
 
-print(snake_string * how_many_snakes)
+# print(snake_string * how_many_snakes)
 
-# expression = eval(input("Enter an expression:"))
+# # expression = eval(input("Enter an expression:"))
 
-# print('The result from the expression entered is: ', expression)
+# # print('The result from the expression entered is: ', expression)
 
-names =  input("Enter student names:")
-assignments =  input("Enter student numbers of assignments pending:")
-grades =  input("Enter student current grades:")
+# names =  input("Enter student names:")
+# assignments =  input("Enter student numbers of assignments pending:")
+# grades =  input("Enter student current grades:")
 
-names = names.split(',')
-assignments = assignments.split(',')
-grades = grades.split(',')
-## message string to be used for each student
-## HINT: use .format() with this string in your for loop
-message = "Hi {},\n\nThis is a reminder that you have {} assignments left to \
-submit before you can graduate. Your current grade is {} and can increase \
-to {} if you submit all assignments before the due date.\n\n"
+# names = names.split(',')
+# assignments = assignments.split(',')
+# grades = grades.split(',')
+# ## message string to be used for each student
+# ## HINT: use .format() with this string in your for loop
+# message = "Hi {},\n\nThis is a reminder that you have {} assignments left to \
+# submit before you can graduate. Your current grade is {} and can increase \
+# to {} if you submit all assignments before the due date.\n\n"
 
-## write a for loop that iterates through each set of names, assignments, and grades to print each student's message
+# ## write a for loop that iterates through each set of names, assignments, and grades to print each student's message
 
-for name, assignment, grade in zip(names, assignments, grades):
-    print(message.format(name, assignment, grade, str(int(grade) + int(assignment))))
+# for name, assignment, grade in zip(names, assignments, grades):
+#     print(message.format(name, assignment, grade, str(int(grade) + int(assignment))))
+n = 6
+k = 2
+binomial_coefficient = 1
+for i in range(1, k + 1):
+    binomial_coefficient *= (n - i + 1) / i
+    
+print(binomial_coefficient)
