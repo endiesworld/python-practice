@@ -24,7 +24,7 @@ if __name__ == '__main__':
     print('Barron continues cooking soup.')
     time.sleep(0.5)
 
-    print('Barron patiently waits for Olivia to finish and join...')
+    print('Barron patiently waits for Olivia to finish and join...', 'I.E the main thread is blocked and waiting for \'Olivia\' to finish')
     olivia.join()
 
     print('Barron and Olivia are both done!')
