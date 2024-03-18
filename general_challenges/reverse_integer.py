@@ -5,14 +5,15 @@ def reverse(x: int) -> int:
         if x < 0:
             bias = -1
             x = x * bias
-        store = ""
+        
         x = str(x)
-        len_x = len(x)
-        negative_index = -1
-        while abs(negative_index) <= len_x:
-            store += x[negative_index]
-            negative_index -= 1
-        store = int(store)
+        x = x[::-1]
+        # len_x = len(x)
+        # negative_index = -1
+        # while abs(negative_index) <= len_x:
+        #     store += x[negative_index]
+        #     negative_index -= 1
+        store = int(x)
         store = store * bias
         if (store < mini) or (store > maxi):
             return 0
