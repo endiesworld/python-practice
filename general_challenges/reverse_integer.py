@@ -21,5 +21,5 @@ def reverse(x: int) -> int:
     
 x = 123
 x = -123
-x = 120
+# x = 120
 print(reverse(x))
