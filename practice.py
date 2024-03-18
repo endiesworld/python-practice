@@ -46,37 +46,6 @@
 # #     test_barry_is_harry()
 
 
-# # authentifyer_user_id = "emmanuel"
-# # credential_id = "prayo"
-# # conditions = []
-# # if authentifyer_user_id is not None:
-# #     conditions.append("authentifyer_user_id='{}'".format(authentifyer_user_id))
-# # if credential_id is not None:
-# #     conditions.append("credential_id='{}'".format(credential_id))
-# #         # if presentation_id is not None:
-# #         #     conditions.append("presentation_id='{}'".format(presentation_id))
-# #         # if provider_id is not None:
-# #         #     conditions.append("provider_id='{}'".format(provider_id))
-# #         # if status is not None:
-# #         #     conditions.append("status IN ('{}')".format(status))
-
-# # condition_str = "TRUE" if not conditions else " AND ".join(conditions)
-# # if not conditions:
-# #     print("**************Conditions is empty************")
-# # else:
-# #     print("**************Conditions is NOT empty************")
-# #     print(conditions)
-# # print(condition_str)
-
-
-# # def my_func(param: List[int]) -> int:
-# #     params = [a for a in param]
-# #     print(f"param is pointing to the object: {param}")
-# #     print(f"params is pointing to the object: {params}")
-# #     return params
-
-# # print(my_func(5))
-
 
 # type = 'value'
 
@@ -88,28 +57,6 @@
 
 # print(my_fnc(type))
 
-
-# CREATE_PROVIDER = {
-#   "corporation": {
-#     "email": "corporation@gmail.com",
-#     "name": "Corperation-name",
-#     "description": "Corperation-description",
-#     "legalName": "Corperation-legalName",
-#     "duns": "Corperation-duns",
-#     "telephone": "Corperation-telephone",
-#     "url": "Corperation-url",
-#     "taxId": "Corperation-taxId",
-#     "vatId": "Corperation-vatId"
-#   },
-#   "administrator": {
-#     "email": "Corperation-admin-email",
-#     "givenName": "Corperation-admin-givenName",
-#     "familyName": "Corperation-admin-familyName",
-#     "displayName": "Corperation-admin-displayName",
-#     "telephone": "Corperation-admin-telephone",
-#     "jobTitle": "Cporperation-admin-jobTitle"
-#   }
-# }
 
 # print(json.dumps(CREATE_PROVIDER))
 
@@ -149,10 +96,25 @@
 
 # for name, assignment, grade in zip(names, assignments, grades):
 #     print(message.format(name, assignment, grade, str(int(grade) + int(assignment))))
-n = 6
-k = 2
-binomial_coefficient = 1
-for i in range(1, k + 1):
-    binomial_coefficient *= (n - i + 1) / i
+# n = 6
+# k = 2
+# binomial_coefficient = 1
+# for i in range(1, k + 1):
+#     binomial_coefficient *= (n - i + 1) / i
     
-print(binomial_coefficient)
+# print(binomial_coefficient)
+
+
+def factorial(x):
+    x_improved = x + 1
+    result = 1
+    if(x < 2):
+        return result
+    for data in range(1, x_improved):
+        result *= data
+    return result
+
+if __name__ == '__main__':
+    result= factorial(5)
+    
+    print(result)
