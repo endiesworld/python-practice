@@ -10,6 +10,18 @@ When working with the Path class from the pathlib module, you can define paths i
 from datetime import datetime
 from pathlib import Path
 
+
+
+
+def generate_random_text_file(length):
+    import random
+    import string
+    
+    letters = string.ascii_letters + string.digits
+    random_text = ''.join(random.choice(letters) for i in range(length))
+    return random_text + '.txt'
+
+
 def general_path_methods():
     current_dir = Path.cwd()
     curr_2 = Path('.')
@@ -53,6 +65,10 @@ def file_ops(filename = 'text_file.txt' ):
     print(f"The last modified time of the file: {datetime.fromtimestamp(file_modified_time)}")
     
     
+"""
+File manipulation can also be used on files that do not exist yet in the filesystem. 
+For this reason, we make use of the 'Pure paths'
+"""
 def path_manipulation():
     my_path = Path('./dir/dir2/dir3/dir4')
     print(f"The direction of '/' processed for my_path is a function of the os: {my_path}")
@@ -70,9 +86,75 @@ def path_manipulation():
     parts_of_file = ['dir1', 'dir2', 'dir3', 'my_file.txt']
     proposed_new_dir = Path.cwd().joinpath(*parts_of_file)
     print(f"The newly created directory and file is: {proposed_new_dir}")
+    
+    new_path = Path.home() /'dir1'/'dir2'/'dir3'/'text_file.txt'
+    print(f"The newly created directory and file is: {new_path}")
+    
+    # Decomposing parts of the path with the 'parts' attribute
+    decomposed  = my_path.parts
+    print(f"The parts of the path 'my_path' are: {decomposed}")
+    print(f"The parts of the path 'new_path' are: {new_path.parts}")
+    
+    print("============ Using the parents property of the Path object")
+    #Accessing the parent of a path with the 'parents' property. you can also use 'parent' if our interest is for just one
+    for index, parent in enumerate(Path.cwd().parents):
+        print(f"{index}: {parent}")
+        
+    for index, parent in enumerate(new_path.parents):
+        print(f"{index}: {parent}")
+
+
+def concrete_method_in_detail(filename='text_file.txt'):
+    with open(filename, 'r') as f:
+        print("========= Reading files the conventional way =========")
+        print(f.readlines())
+
+    my_file = Path.cwd().joinpath(filename)
+    with open(my_file, 'r') as f:
+        print("========= Reading files the Path object =========")
+        print(f.readlines())
+    
+    new_dir = Path.cwd().joinpath('dir1')
+    
+    try:
+        new_dir.mkdir()
+    except FileExistsError as e:
+        print(e)
+        
+    print(f"Does the directory 'dir1' exist ? : {new_dir.is_dir()}")
+    
+    filename = generate_random_text_file(8)
+    new_file_path = new_dir.joinpath(filename) 
+    
+    while Path(new_file_path).is_file():
+        filename = generate_random_text_file(8)
+        new_file_path = new_dir.joinpath(filename)
+    
+    print(f"Creating new file: {new_file_path}")
+    new_file_path.touch()
+    print(f"Does new_file_path file exist ? : {new_file_path.is_file()}")
+    
+    with open(new_file_path, 'w') as f:
+        f.write('Testing the python Path class from the pathlib module \n')
+        
+    with open(new_file_path, 'r') as f:
+        print(f.readlines())
+    
+    # Delete the random file created
+    new_file_path.unlink()
+    print(f"Does new_file_path directory exist ? : {new_file_path.exists()}")
+    
+    try:
+    #Delete the dir1 created. Note the dir1 must be empty before it is deleted.
+        new_dir.rmdir()
+    except FileNotFoundError as e:
+        print(e)
+        
+    print(f"Does new_dir directory exist ? : {new_dir.exists()}")
 
 
 if __name__ == '__main__':
     # general_path_methods()
     # file_ops()
-    path_manipulation()
+    # path_manipulation()
+    concrete_method_in_detail()
