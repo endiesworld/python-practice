@@ -1,2 +1,0 @@
-Hello, world
-This random file will be deleted in 20secs.
