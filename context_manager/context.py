@@ -14,6 +14,7 @@ class TempFile:
     def __init__(self, filename=None) -> None:
         if not filename:
             filename = "".join(sample(ascii_letters, 10))
+            filename = filename + '.txt'
         self.file = Path(filename)
         print(f"The current file path is: {self.file}")
         print(f"Does {self.file} exist:{self.file.is_file()}")
@@ -30,7 +31,6 @@ class TempFile:
         return self.file.open("w")
         
     def __exit__(self, *args):
-        
         self.file.unlink()    
         
         
