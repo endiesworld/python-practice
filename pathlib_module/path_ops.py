@@ -23,7 +23,7 @@ def generate_random_text_file(length):
 
 
 def general_path_methods():
-    current_dir = Path.cwd()
+    current_dir = Path.cwd() # current directory cwd() points to the directory where the python command runs
     curr_2 = Path('.')
 
     print(current_dir)
