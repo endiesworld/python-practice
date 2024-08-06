@@ -1,1 +1,1 @@
-Hi I am Emmanuel Okoro, and currently experimenting with python's context manager
+Hi I am Emmanuel Okoro, and currently experimenting with python's context manager using the @contextmanager decorator from the contextlib package
