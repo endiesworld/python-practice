@@ -1,6 +1,10 @@
+
 # Steps to follow to install run and connect to MySQL Server
+
 Differ for different OS and terminals
+
 ## MacBook
+
 1). Install mysql server through whatever convienience means you desire.
 2).  To search the entire system file for your myqsl installation
 >> sudo find / -name mysql -type f 
@@ -13,3 +17,9 @@ Differ for different OS and terminals
 >> source ~/.zchrc <!-- or which ever suits your case -->
 6). Start the mysql server
 >> sudo sudo mysql -u root -p <!-- first password request is the sudo password, while the second is for mysql>
+
+## Workflow for working with database
+
+1) Create the database and schema in any database server of your choice.
+2) Create all the tables that you will be working with in the database.
+3). Connect to the database with any database connector of your choice and carry out all desired operations.
