@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 
 from sqlalchemy import Column, String, Integer, ForeignKey, create_engine
-from sqlalchemy.orm import registry, relationship
+from sqlalchemy.orm import registry, relationship, Session
 
 load_dotenv()
 
@@ -55,3 +55,34 @@ class Task(Base):
         return "<description='{0}')>".format(self.description)
 
 Base.metadata.create_all(engine)
+
+"""
+Creating Session Object for ORM operated database operations
+
+The session object is responsible for building insert() constructs and sending them to the database in a transaction
+A transaction is a set of all or nothing queries. We either want them all to run or none of them to run at all.
+
+In ORM, the session object makes use of a pattern known as unit of work. This generally means it accumulates 
+changes one at a time, but it does not communicate them to the database until needed.
+
+When it does emit SQL to the database to push out the current set of chnages, the process is known as a flush.
+
+"""
+
+with Session(engine) as session:
+    organize_closet_project = Project(title='Organize closet', description='Organize closet by color and style')
+    
+    session.add(organize_closet_project)
+    session.flush()
+    
+    tasks = [ 
+            Task(project_id=organize_closet_project.project_id,
+                description='Decide what clothes to donate'),
+            Task(project_id=organize_closet_project.project_id,
+                description='Organize summer clothes'),
+            Task(project_id=organize_closet_project.project_id,
+                description='Organize winter clothes')
+            ]
+    
+    session.bulk_save_objects(tasks)
+    session.commit()
