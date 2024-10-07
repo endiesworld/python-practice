@@ -31,8 +31,12 @@ If you want to install the Python package locally to your computer, you might wa
 
 If you want to try using virtual environments in this workspace first, here is how to do it:
 * There is an issue with the Ubuntu operating system and Python3 where the venv package isn't installed correctly. In the workspace, one way to fix this is by running this command in the workspace terminal: `conda update python` See: <https://stackoverflow.com/questions/26215790/venv-doesnt-create-activate-script-python3> Then type `y` when prompted. It might take a couple of minutes for the workspace to update. If you are not using anaconda on your local computer, you can skip this first step.
-* now, type this command to create a virtual environment `python -m venv venv_name` where venv_name is the name you want to give to your virtual environment. You'll see a new folder appear with the Python installation named venv_name
-* In the terminal, type `source venv_name/bin/activate`. You'll notice that the command line now shows (venv_name) at the beginning of the line to indicate you are using the venv_name virtual environment
+
+* now, type this command to create a virtual environment `python -m venv venv_name` where venv_name is the name you want to give to your virtual environment. You'll see a new folder appear with the Python installation named venv_name.
+
+* In the terminal for linux or mac, type `source venv_name/bin/activate`. You'll notice that the command line now shows (venv_name) at the beginning of the line to indicate you are using the venv_name virtual environment.
+
+* For windows PowerShell, `.\myenv\Scripts\Activate`.
 * Now, you can type `pip install python_package/.` That should install your distributions Python package.
 * Try using the package in a program to see if everything works!
 
@@ -46,7 +50,7 @@ distributions folder
 setup.py file
 In the example from the previous page. this distributions folder currently contains the
 
-Gaussiandistribution.py
+Gaussiandistribution.pyclear
 Generaldistribution.py
 __init__.py
 inside this file, we include any imports so we have from .Gaussiandistribution import Gaussian
