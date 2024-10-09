@@ -37,6 +37,6 @@ print("Average: " , str(avg))
 med = np.median(height)
 print("Median: ", str(med))
 
-# # Print out the standard deviation on height. Replace 'None'
+# # Print out the standard deviation on height. 
 stddev = np.std(height)
 print("Standard Deviation: " + str(stddev))
