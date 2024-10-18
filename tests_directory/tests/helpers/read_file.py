@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 # For local test only, Directory to save uploaded images
-IMAGE_PATH = Path.cwd()/'tests'/'helpers' /'meal.jpg'
+IMAGE_PATH = Path(__file__).parent /'meal.jpg'
 
 
 # Function to read the image
