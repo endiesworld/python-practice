@@ -1,3 +1,12 @@
+"""
+    List comprehensions
+        list comprehensions collapse for loops for building lists into a single line and the required components are:
+        1) an iterable, 
+        2) an iterator variable that represents the members of the iterable and 
+        3) an output expression. That's it. You can also use list comprehensions in place of nested for loops.    
+    labels = [EXPRESSION for char in my_string]
+"""
+
 #  List comprehensions are a compact way to create lists in Python and can sometimes be more efficient
 # (i.e. execute faster) than generic for loops in Python
 # [ return computation on this item for item in list if item satisfies condition ]
@@ -41,3 +50,13 @@ for data in RESPONSE_REQUIRED:
     result.append(r)
 
 print(result)
+
+# Nested list comprehension
+# Create a 5 x 5 matrix using a list of lists: matrix
+matrix = [[col for col in range(0,5)]  for row in range(0,5)]
+
+print(matrix)
+
+# Print the matrix
+for row in matrix:
+    print(row)
