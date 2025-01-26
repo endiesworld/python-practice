@@ -45,11 +45,12 @@ number = 14
 def search_func(card, number):
 
     card_len = len(card)
-    return search_func_(card, number, left=0, right=card_len-1)
+    # print("Length of card is: ", card_len)
+    return search_func_(card, number, left=0, right=card_len)
 
 
 def search_func_(card, number, left, right):
-    if (left > right):
+    if (left >= right):
         return None
     mid = (left + right) // 2
 
@@ -57,16 +58,17 @@ def search_func_(card, number, left, right):
 
     if result == number:
         return mid
-    elif result > number:
-        print(f'left changed to {mid}, right remains {right}')
+    elif number < result:
+        # print(f'left remain, right changed to {mid}')
+        return search_func_(card, number, left, mid)
+
+    elif number > result :
+        # print(f'right changed to {mid}')
         return search_func_(card, number, mid + 1, right)
+    
+    return "Value not in list"
 
-    elif result < number:
-        print(f'right changed to {mid}')
-        return search_func_(card, number, left, mid - 1)
-
-
-print(search_func(card, number))
+# print(search_func(card, number))
 
 
 # Recursive solution for binary search for list sorted in descending order
@@ -101,54 +103,6 @@ print(search_func(card, number))
 #         return recursive_binary_seach(list, element, start=start, stop=stop)
 
 
-# def loop_binary_search(list, element):
-#     arr_size = len(list)
-#     if arr_size == 1:
-#         return 0 if list[0] == element else None
-
-#     index = None
-#     start = 0
-#     stop = arr_size
-
-#     while start < stop:
-#         mid_point = (start + stop) // 2
-#         print('mid point is: {}, start point is: {}, stop point is: {}'.format(
-#             mid_point, start, stop))
-#         if list[mid_point] == element:
-#             index = mid_point
-#             break
-#         if mid_point == start:
-#             break
-#         elif list[mid_point] > element:
-#             start = mid_point
-#         else:
-#             stop = mid_point
-#     return index
-
-
-# def search(nums, target: int) -> int:
-
-#     arr_size = len(nums)
-
-#     if nums[0] == target:
-#         return 0
-
-#     index = -1
-#     start = 0
-#     stop = arr_size
-
-#     while start < stop:
-#         mid_point = (start + stop) // 2
-#         if nums[mid_point] == target:
-#             index = mid_point
-#             break
-#         elif (stop == mid_point) | (start == mid_point):
-#             break
-#         elif nums[mid_point] > target:
-#             stop = mid_point
-#         else:
-#             start = mid_point
-#     return index
 
 
 # def search(nums, target):
@@ -174,6 +128,12 @@ print(search_func(card, number))
 
 # # print(recursive_binary_seach(card, number))
 # # print(loop_binary_search(card, number))
-# print(search([-2, -1, 0, 2, 3, 5, 9, 12], -2))
+print(search_func([-2, -1, 0, 2, 3, 5, 9, 12], -2))
+print(search_func([5,6,7,8,9], 9))
+print(search_func([5,6,7,8,9], 10))
+print(search_func([5,6,7,8,9], 8))
+print(search_func([5,6,7,8,9], 4))
+print(search_func([5,6,7,8,9], 6))
 
-print('Hello there')
+
+
