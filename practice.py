@@ -114,7 +114,17 @@ def factorial(x):
         result *= data
     return result
 
+def swap_arr_element(arr: list):
+    temp = arr[0]
+    arr[0] = arr[1]
+    arr[1] = temp
+
 if __name__ == '__main__':
-    result= factorial(5)
+    myArray = [1, 2, 3, 4, 5]
+    print("swapped array: " , myArray)
+    swap_arr_element(myArray)
+    print("swapped array: " , myArray)
     
-    print(result)
+    # result= factorial(5)
+    
+    # print(result)
